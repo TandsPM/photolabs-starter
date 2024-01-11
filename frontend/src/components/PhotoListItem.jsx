@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
+import PhotoFavButton from './PhotoFavButton';
 import "../styles/PhotoListItem.scss";
 
 
 const PhotoListItem = (props) => {
   const { id, location, imageSource, username, profile } = props;
+
+  const [selected, setSelected] = useState(false);
+
+  const handleClick = () => {
+    switchFav();
+    setSelected((prevSelected) => !prevSelected);
+  };
  
   return (
     <div className="photo-list__item">
@@ -15,6 +23,7 @@ const PhotoListItem = (props) => {
         <p className="photo-list__user-location">{`${location.city}, ${location.country}`}</p>
         </div>
       </div>
+      <PhotoFavButton switchFav={handleClick} selected={selected}/>
     </div>
   )
 };
