@@ -2,7 +2,8 @@ import React from "react";
 import "../styles/PhotoListItem.scss";
 
 
-const PhotoListItem = ({ id, location, imageSource, username, profile }) => {
+const PhotoListItem = (props) => {
+  const { id, location, imageSource, username, profile } = props;
  
   return (
     <div className="PhotoListItem">
