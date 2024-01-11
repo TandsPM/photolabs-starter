@@ -1,10 +1,11 @@
-.photo-list__item {
+// .photo-list__item
+.PhotoListItem {
   margin: 24px;
-  padding: 8px;
+  padding: 18px;
   border-width: 0.5px;
   border-color: lightgray;
   border-style: solid;
-  border-radius: 8px;
+  border-radius: 10px;
   max-width: fit-content;
 }
 
@@ -16,7 +17,7 @@
 }
 
 .photo-list__image {
-  border-radius: 8px 8px 0px 0px;
+  border-radius: 10px;
   user-select: none;
   width: 300px;
   height: 200px;
