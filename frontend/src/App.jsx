@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 
+import PhotoFavButton from'./components/PhotoFavButton';
 import PhotoListItem from './components/PhotoListItem';
 import PhotoList from './components/PhotoList';
 import './App.scss';
@@ -17,12 +18,21 @@ const sampleDataForPhotoListItem = {
 
 // Note: Rendering a single component to build components in isolation
 const App = () => {
+  const [selected, setSelected] = useState(false);
+
+  const switchFav = () => {
+    setSelected((prevSelected) => !prevSelected);
+  };
+
   const photo = new Array(3).fill(sampleDataForPhotoListItem);
 
   return (
     <div className="App">
       {photo.map((photo, id) => (
-        <PhotoListItem key={id} {...photo} />
+        <div key={id} className="photo-container">
+          <PhotoFavButton selected={selected} switchFav={switchFav}/>
+          <PhotoListItem {...photo}/>
+        </div>
       ))}
     </div>
   );
