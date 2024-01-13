@@ -6,11 +6,12 @@ import topics from './mocks/topics';
 import './App.scss';
 
 const App = () => {
+  const [displayModal, setDisplayModal] = useState(false);
 
   return (
     <div className="App">
-      <HomeRoute photos={photos} topics={topics} />
-      <PhotoDetailsModal />
+      <HomeRoute photos={photos} topics={topics} setDisplayModal={setDisplayModal}/>
+      {displayModal && <PhotoDetailsModal />}
     </div>
   );
 };
