@@ -8,10 +8,14 @@ const sampleDataForTopicListItem = {
   label: "Nature",
 };
 
-const TopicListItem = () => {
+const TopicListItem = ({ slug, title, onClick }) => {
+  const handleClick = () => {
+    onClick(slug);
+  };
+
   return (
-    <div className="topic-list__item">
-      {/* Insert React */}
+    <div className="topic-list__item" onClick={handleClick}>
+      {title}
     </div>
   );
 };

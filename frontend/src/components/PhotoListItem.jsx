@@ -11,7 +11,7 @@ const PhotoListItem = (props) => {
   return (
     <div className="photo-list__item">
       {urls && <img src={urls.regular} alt={`Photo by ${user.username}`} className="photo-list__image"/>}
-      {user && <img src={user.profile} alt={`${user.username}'s profile`} className="photo-list__user-profile" onError={(e) => console.error('Error loading image', e)}/>}
+      {user && <img src={user.profile} alt={`${user.username}'s profile`} className="photo-list__user-profile"/>}
       <div className="photo-list__user-details">
         <div className="photo-list__user-info">
         <p>{user.username}</p>
