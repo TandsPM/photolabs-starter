@@ -5,11 +5,11 @@ import '../styles/PhotoFavButton.scss';
 
 
 function PhotoFavButton({ switchFav, isFavorite, photoId }) {
-  // const [selected, setSelected] = useState(false);
+  const [selected, setSelected] = useState(false);
 
   const handleClick = () => {
     switchFav(photoId);
-    // setSelected((prevSelected) => !prevSelected);
+    setSelected((prevSelected) => !prevSelected);
   };
 
 

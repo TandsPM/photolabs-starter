@@ -4,7 +4,7 @@ import PhotoFavButton from '../components/PhotoFavButton';
 import TopNavigationBar from '../components/TopNavigationBar';
 import '../styles/HomeRoute.scss';
 
-const HomeRoute = ({ photos, topics }) => {
+const HomeRoute = ({ photos, topics, setPhotos }) => {
   const [favorites, setFavorites] = useState([]);
 
   const pickFavorite = (photoId) => {
@@ -13,7 +13,7 @@ const HomeRoute = ({ photos, topics }) => {
     ? prevFavorites.filter((id) => id !== photoId)
     : [...prevFavorites, photoId]
     );
-  }
+  };
 
   return (
     <div className="home-route">
