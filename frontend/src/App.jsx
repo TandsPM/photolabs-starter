@@ -14,9 +14,10 @@ const App = () => {
 
   return (
     <div className="App">
+      <TopNavigationBar />
       {[1, 2, 3].map((id) => (
         <div key={id} className="photo-container">
-          <TopNavigationBar />
+          {/* <TopNavigationBar /> */}
           <PhotoFavButton selected={selected} switchFav={switchFav} />
           {/* <TopicList onClick={switchFav}/> */}
           <PhotoList />
