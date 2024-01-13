@@ -4,19 +4,23 @@ import "../styles/PhotoListItem.scss";
 
 
 const PhotoListItem = (props) => {
-  const { id, location, imageSource, username, profile, switchFav } = props;
+  const { photo } = props;
+  const { location, urls, user } = photo;
+  console.log('props', props);
  
   return (
     <div className="photo-list__item">
-      <img src={imageSource} alt={`Photo by ${username}`} className="photo-list__image"/>
-      <img src={profile} alt={`${username}'s profile`} className="photo-list__user-profile"/>
+      {urls && <img src={urls.regular} alt={`Photo by ${user.username}`} className="photo-list__image"/>}
+      {user && <img src={user.profile} alt={`${user.username}'s profile`} className="photo-list__user-profile" onError={(e) => console.error('Error loading image', e)}/>}
       <div className="photo-list__user-details">
         <div className="photo-list__user-info">
-        <p>{username}</p>
+        <p>{user.username}</p>
+        {location && (
         <p className="photo-list__user-location">{`${location.city}, ${location.country}`}</p>
+        )}
         </div>
       </div>
-      <PhotoFavButton switchFav={switchFav}/>
+      {/* <PhotoFavButton switchFav={switchFav}/> */}
     </div>
   )
 };
