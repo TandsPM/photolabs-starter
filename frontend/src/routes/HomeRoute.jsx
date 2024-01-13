@@ -18,15 +18,7 @@ const HomeRoute = ({ photos, topics }) => {
   return (
     <div className="home-route">
       <TopNavigationBar topics={topics} favoriteCount={favorites.length}/>
-      <PhotoList photos={photos.map((photo) => ({...photo, isFavorite: favorites.includes(photo.id),
-      }))}
-      />
-      {photos.map((photo) => (
-      <PhotoFavButton 
-      key={photo.id}
-      switchFav={() => pickFavorite(photo.id)}
-      />
-      ))}
+      <PhotoList photos={photos} switchFav={pickFavorite} />
     </div>
   );
 };

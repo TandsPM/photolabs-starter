@@ -4,17 +4,14 @@ import PhotoFavButton from './PhotoFavButton';
 
 import "../styles/PhotoList.scss";
 
-const PhotoList = ({ photos }) => {
+const PhotoList = ({ photos, switchFav }) => {
 
   return (
-    <ul className="photo-list">
+    <div className="photo-list">
       {photos.map((photo) => (
-        <div key={photo.id}>
-        <PhotoListItem photo={photo} imageSource={photo.urls.regular} />
-        <PhotoFavButton />
-        </div>
+        <PhotoListItem key={photo.id} photo={photo} switchFav={switchFav} />
       ))}
-    </ul>
+    </div>
   );
 };
 
