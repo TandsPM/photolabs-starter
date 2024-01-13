@@ -14,12 +14,12 @@ const App = () => {
   return (
     <div className="App">
       <HomeRoute />
-      {[1, 2, 3].map((id) => (
+      {/* {[1, 2, 3].map((id) => (
         <div key={id} className="photo-container">
           <PhotoFavButton selected={selected} switchFav={switchFav} />
           <PhotoList />
         </div>
-      ))}
+      ))} */}
     </div>
   );
 };
