@@ -3,11 +3,11 @@ import PhotoFavButton from './PhotoFavButton';
 import "../styles/PhotoListItem.scss";
 
 
-const PhotoListItem = ({ photo, switchFav, setDisplayModal }) => {
+const PhotoListItem = ({ photo, switchFav, openModal }) => {
   const { location, urls, user } = photo;
 
   const handleClick = () => {
-    setDisplayModal(true);
+    openModal(true);
   }
  
   return (

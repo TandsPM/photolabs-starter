@@ -7,16 +7,33 @@ import './App.scss';
 
 const App = () => {
   console.log("photos", photos);
+  const [selectedPhoto, setSelectedPhoto] = useState(null);
   const [displayModal, setDisplayModal] = useState(false);
 
+  const openModal = (photo) => {
+    console.log('test', photo);
+    setSelectedPhoto(photo);
+    setDisplayModal(true);
+  };
+
   const closeModal = () => {
+    setSelectedPhoto(null);
     setDisplayModal(false);
   };
 
   return (
     <div className="App">
-      <HomeRoute photos={photos} topics={topics} setDisplayModal={setDisplayModal} />
-      {displayModal && <PhotoDetailsModal closeModal={closeModal} />}
+      <HomeRoute photos={photos} topics={topics} openModal={openModal} />
+      {displayModal && (
+      <PhotoDetailsModal
+      selectedPhoto={selectedPhoto}
+      closeModal={closeModal}
+      photos={photos}
+      similarPhoto={(photo) => {
+        console.log('photo', photo);
+      }}
+      />
+    )}
     </div>
   );
 };

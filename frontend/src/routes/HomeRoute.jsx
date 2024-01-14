@@ -4,8 +4,8 @@ import PhotoFavButton from '../components/PhotoFavButton';
 import TopNavigationBar from '../components/TopNavigationBar';
 import '../styles/HomeRoute.scss';
 
-const HomeRoute = ({ photos, topics, setDisplayModal }) => {
-  const [favorites, setFavorites] = useState([]);
+const HomeRoute = ({ photos, topics, openModal }) => {
+ const [favorites, setFavorites] = useState([]);
 
   const pickFavorite = (photoId) => {
     setFavorites((prevFavorites) =>
@@ -18,7 +18,7 @@ const HomeRoute = ({ photos, topics, setDisplayModal }) => {
   return (
     <div className="home-route">
       <TopNavigationBar topics={topics} favoriteCount={favorites.length}/>
-      <PhotoList photos={photos} switchFav={pickFavorite} setDisplayModal={setDisplayModal} />
+      <PhotoList photos={photos} switchFav={pickFavorite} openModal={openModal} />
     </div>
   );
 };
