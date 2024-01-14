@@ -5,6 +5,7 @@ import PhotoFavButton from './PhotoFavButton';
 import "../styles/PhotoList.scss";
 
 const PhotoList = ({ photos, switchFav, setDisplayModal }) => {
+  console.log("setDisplayModal", setDisplayModal);
 
   return (
     <div className="photo-list">

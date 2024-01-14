@@ -8,10 +8,14 @@ import './App.scss';
 const App = () => {
   const [displayModal, setDisplayModal] = useState(false);
 
+  const closeModal = () => {
+    setDisplayModal(false);
+  };
+
   return (
     <div className="App">
-      <HomeRoute photos={photos} topics={topics} setDisplayModal={setDisplayModal}/>
-      {displayModal && <PhotoDetailsModal />}
+      <HomeRoute photos={photos} topics={topics} setDisplayModal={setDisplayModal} />
+      {displayModal && <PhotoDetailsModal closeModal={closeModal} />}
     </div>
   );
 };

@@ -1,18 +1,12 @@
 import React, { useState } from 'react';
-
 import '../styles/PhotoDetailsModal.scss'
 import closeSymbol from '../assets/closeSymbol.svg';
 
-const PhotoDetailsModal = () => {
-  const [modal, setModal] = useState(false);
-
-  const toggleModal = () => {
-    setModal(!modal)
-  };
+const PhotoDetailsModal = ({ closeModal }) => {
 
   return (
     <div className="photo-details-modal">
-      <button onClick={toggleModal} className="photo-details-modal__close-button">
+      <button onClick={closeModal} className="photo-details-modal__close-button">
         <img src={closeSymbol} alt="close symbol" />
       </button>
     </div>

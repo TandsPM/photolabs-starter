@@ -4,6 +4,7 @@ import "../styles/PhotoListItem.scss";
 
 
 const PhotoListItem = ({ photo, switchFav, setDisplayModal }) => {
+  console.log("setDisplayModal", setDisplayModal);
   const { location, urls, user } = photo;
 
   const handleClick = () => {
