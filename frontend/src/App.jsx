@@ -6,6 +6,7 @@ import topics from './mocks/topics';
 import './App.scss';
 
 const App = () => {
+  console.log("photos", photos);
   const [displayModal, setDisplayModal] = useState(false);
 
   const closeModal = () => {
