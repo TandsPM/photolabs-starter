@@ -25,13 +25,11 @@ const App = () => {
     <div className="App">
       <HomeRoute photos={photos} topics={topics} openModal={openModal} />
       {displayModal && (
-      <PhotoDetailsModal
-      selectedPhoto={selectedPhoto}
-      closeModal={closeModal}
-      photos={photos}
-      similarPhoto={(photo) => {
-        console.log('photo', photo);
-      }}
+        <PhotoDetailsModal
+          selectedPhoto={selectedPhoto}
+          closeModal={closeModal}
+          photos={photos}
+          similarPhoto={(photo) => {}}
       />
     )}
     </div>
