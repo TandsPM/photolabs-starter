@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import PhotoFavButton from './PhotoFavButton';
 import "../styles/PhotoListItem.scss";
 
@@ -7,7 +7,7 @@ const PhotoListItem = ({ photo, switchFav, openModal }) => {
   const { location, urls, user } = photo;
 
   const handleClick = () => {
-    openModal(true);
+    openModal(photo);
   }
  
   return (

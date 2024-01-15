@@ -7,7 +7,7 @@ import './App.scss';
 
 const App = () => {
   console.log("photos", photos);
-  const [selectedPhoto, setSelectedPhoto] = useState(null);
+  const [selectedPhoto, setSelectedPhoto] = useState([]);
   const [displayModal, setDisplayModal] = useState(false);
 
   const openModal = (photo) => {
