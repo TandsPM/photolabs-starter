@@ -12,6 +12,7 @@ const App = () => {
     openModal,
     toggleFavorite,
     onClosePhotoDetailsModal,
+    handleTopic,
   } = useApplicationData();
 
 const { selectedPhoto, displayModal, favorites, photoData, topicData } = state;
@@ -25,6 +26,7 @@ const { selectedPhoto, displayModal, favorites, photoData, topicData } = state;
       favoriteCount={favorites.length}
       openModal={openModal}
       favorites={favorites}
+      handleTopic={handleTopic}
       />
 
       {displayModal && (

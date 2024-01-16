@@ -1,11 +1,14 @@
 import { useReducer, useEffect } from 'react';
-
+import axios from 'axios';
 
 // action types used in reducer - Objects witha 'type' property for action to be done
 export const ACTIONS = {
   OPEN_MODAL: 'OPEN_MODAL',
   CLOSE_MODAL: 'CLOSE_MODAL',
   TOGGLE_FAVORITE: 'TOGGLE_FAVORITE',
+  SET_PHOTO_DATA: 'SET_PHOTO_DATA',
+  SET_TOPIC_DATA: 'SET_PHOTO_DATA',
+  SET_PHOTOS_BY_TOPIC: 'SET_PHOTOS_BY_TOPIC',
 };
 
 const initialState = {
@@ -13,7 +16,8 @@ const initialState = {
   displayModal: false,
   favorites: [],
   photoData: [],
-  topicData: []
+  topicData: [],
+  photosByTopic: [],
 };
 
 // how state should be updated based on different actions
@@ -31,8 +35,10 @@ const reducer = (state, action) => {
       }
     case ACTIONS.SET_PHOTO_DATA:
       return { ...state, photoData: action.payload };
-    case ACTIONS.SET_TOPIC_DATA:
-      return { ...state, topicData: action.payload };
+    // case ACTIONS.SET_TOPIC_DATA:
+    //   return { ...state, topicData: action.payload };
+    case ACTIONS.SET_PHOTOS_BY_TOPIC:
+      return { ...state, photosByTopic: action.payload };
     default:
       throw new Error('Tried to reduce with unsupported action type: ${action.type}');
   }
@@ -58,12 +64,24 @@ const useApplicationData = () => {
     closeModal();
   };
 
+  const handleTopic = (topicId) => {
+    fetchPhotosByTopic(topicId);
+  }
+
+  const fetchData = (url, actionType, dispatch) => {
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => dispatch({ type: actionType, payload: data }))
+      .catch((error) => console.error(`Error fetching data: ${error}`));
+  };
+
   // fetching photos data
   useEffect(() => {
     const fetchPhotoData = () => {
-      fetch('/api/photos')
-      .then(res => res.json())
-      .then(photoData => dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: photoData }));
+      fetchData('/api/photos', ACTIONS.SET_PHOTO_DATA, dispatch);
+      // ('/api/photos')
+      // .then(res => res.json())
+      // .then(photoData => dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: photoData }));
     };
 
   fetchPhotoData();
@@ -72,19 +90,32 @@ const useApplicationData = () => {
   // fetching Topics data
   useEffect(() => {
     const fetchTopicData = () => {
-      fetch('/api/topics')
-      .then(res => res.json())
-      .then(topicData => dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: topicData }));
+      fetchData('/api/topics', ACTIONS.SET_TOPIC_DATA, dispatch)
+      // .then(res => res.json())
+      // .then(topicData => dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: topicData }));
     };
 
   fetchTopicData();
 }, []);
+
+// fetch photos based on given topicId
+const fetchPhotosByTopic = (topicId) => {
+  axios
+  .get(`http://localhost:8001/api/topics/photos/${topicId}`)
+  .then((response) => {
+    dispatch({ type: ACTIONS.SET_PHOTOS_BY_TOPIC, payload: response.data });
+  })
+  .catch((error) => {
+    console.error(`Error fetching the photos by topic:`, error);
+  });
+};
 
   return {
     state,
     openModal,
     toggleFavorite,
     onClosePhotoDetailsModal,
+    handleTopic,
   };
 };
 
