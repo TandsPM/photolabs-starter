@@ -1,24 +1,27 @@
-# react-photolabs
-The PhotoLabs project for the Web Development React course programming.
+# Photolabs - React
+The PhotoLabs is a full stack web application build with React that allows users to view and like photos.
 
-# Photolabs
+## Final Product
+
+!["Screenshot of Main Page"]()
+!["Screenshot of Modal"]()
 
 ## Setup
 
 Install dependencies with `npm install` in each respective `/frontend` and `/backend`.
 
-## [Frontend] Running Webpack Development Server
+## Dependencies
 
-```sh
-cd frontend
-npm start
-```
+- axios
+- body-parser
+- cors
+- express
+- react
+- web-vitals
+- eslint-config-react-app:
 
-## [Backend] Running Backend Servier
+## Getting Started
 
-Read `backend/readme` for further setup details.
+- Install all dependencies (using the `npm install` command).
+- Run the development web server using the `npm start` command.
 
-```sh
-cd backend
-npm start
-```
