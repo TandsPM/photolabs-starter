@@ -1,13 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PhotoList from '../components/PhotoList';
 import PhotoFavButton from '../components/PhotoFavButton';
 import '../styles/PhotoDetailsModal.scss';
 import closeSymbol from '../assets/closeSymbol.svg';
 
 const PhotoDetailsModal = ({ selectedPhoto, closeModal, toggleFavorite, favorites }) => {
-  const { urls, user, location, similar_photos } = selectedPhoto;
+  const { user, location, similar_photos } = selectedPhoto;
   console.log('similar_phot', similar_photos);
-
 
   return (
     <div className="photo-details-modal">
