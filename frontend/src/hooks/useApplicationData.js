@@ -25,14 +25,6 @@ const useApplicationData = () => {
     }
   };
 
-  const updateToFavPhotoIds = (photoId) => {
-    toggleFavorite(photoId);
-  };
-
-  const setPhotoSelected = () => {
-    openModal();
-  };
-
   const onClosePhotoDetailsModal = () => {
     closeModal();
   };
@@ -43,8 +35,8 @@ const useApplicationData = () => {
       displayModal,
       favorites,
     },
-    updateToFavPhotoIds,
-    setPhotoSelected,
+    openModal,
+    toggleFavorite,
     onClosePhotoDetailsModal,
   };
 };

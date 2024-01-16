@@ -9,8 +9,8 @@ import './App.scss';
 const App = () => {
   const {
     state,
-    setPhotoSelected,
-    updateToFavPhotoIds,
+    openModal,
+    toggleFavorite,
     onClosePhotoDetailsModal,
   } = useApplicationData();
 
@@ -21,9 +21,9 @@ const { selectedPhoto, displayModal, favorites } = state;
       <HomeRoute
       photos={photos}
       topics={topics}
-      toggleFavorite={updateToFavPhotoIds}
+      toggleFavorite={toggleFavorite}
       favoriteCount={favorites.length}
-      openModal={setPhotoSelected}
+      openModal={openModal}
       favorites={favorites}
       />
 
@@ -32,7 +32,7 @@ const { selectedPhoto, displayModal, favorites } = state;
         selectedPhoto={selectedPhoto}
         closeModal={onClosePhotoDetailsModal}
         isFavorite={(photoId) => favorites.includes(photoId)}
-        toggleFavorite={updateToFavPhotoIds}
+        toggleFavorite={toggleFavorite}
         favorites={favorites}
       />
     )}
