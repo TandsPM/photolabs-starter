@@ -7,7 +7,7 @@ export const ACTIONS = {
   CLOSE_MODAL: 'CLOSE_MODAL',
   TOGGLE_FAVORITE: 'TOGGLE_FAVORITE',
   SET_PHOTO_DATA: 'SET_PHOTO_DATA',
-  SET_TOPIC_DATA: 'SET_PHOTO_DATA',
+  SET_TOPIC_DATA: 'SET_TOPIC_DATA',
   SET_PHOTOS_BY_TOPIC: 'SET_PHOTOS_BY_TOPIC',
 };
 
@@ -35,8 +35,8 @@ const reducer = (state, action) => {
       }
     case ACTIONS.SET_PHOTO_DATA:
       return { ...state, photoData: action.payload };
-    // case ACTIONS.SET_TOPIC_DATA:
-    //   return { ...state, topicData: action.payload };
+    case ACTIONS.SET_TOPIC_DATA:
+      return { ...state, topicData: action.payload };
     case ACTIONS.SET_PHOTOS_BY_TOPIC:
       return { ...state, photosByTopic: action.payload };
     default:
@@ -79,9 +79,6 @@ const useApplicationData = () => {
   useEffect(() => {
     const fetchPhotoData = () => {
       fetchData('/api/photos', ACTIONS.SET_PHOTO_DATA, dispatch);
-      // ('/api/photos')
-      // .then(res => res.json())
-      // .then(photoData => dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: photoData }));
     };
 
   fetchPhotoData();
@@ -91,8 +88,6 @@ const useApplicationData = () => {
   useEffect(() => {
     const fetchTopicData = () => {
       fetchData('/api/topics', ACTIONS.SET_TOPIC_DATA, dispatch)
-      // .then(res => res.json())
-      // .then(topicData => dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: topicData }));
     };
 
   fetchTopicData();
