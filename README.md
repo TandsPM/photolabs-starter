@@ -3,7 +3,7 @@ The PhotoLabs is a full stack web application build with React that allows users
 
 ## Final Product
 
-!["Screenshot of Main Page"]()
+!["Screenshot of Main Page"](https://github.com/TandsPM/photolabs-starter/blob/main/docs/Main-Page.png?raw=true)
 !["Screenshot of Modal"]()
 
 ## Setup
