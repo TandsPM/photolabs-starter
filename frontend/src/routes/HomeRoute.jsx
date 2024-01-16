@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PhotoList from '../components/PhotoList';
-import PhotoFavButton from '../components/PhotoFavButton';
 import TopNavigationBar from '../components/TopNavigationBar';
 import '../styles/HomeRoute.scss';
 
