@@ -1,19 +1,13 @@
 import React, { useState } from 'react';
 import PhotoList from '../components/PhotoList';
+import PhotoFavButton from '../components/PhotoFavButton';
 import '../styles/PhotoDetailsModal.scss';
 import closeSymbol from '../assets/closeSymbol.svg';
 
-const PhotoDetailsModal = ({ selectedPhoto, closeModal, photos }) => {
-  const { urls, user, location } = selectedPhoto;
-  console.log('selectedPhoto', selectedPhoto);
-  console.log('urls', selectedPhoto?.urls);
-  console.log('user', selectedPhoto?.user);
-  console.log('location', selectedPhoto?.location);
-  const [selectedSimilarPhoto, setSelectedSimilarPhoto] = useState([]);
+const PhotoDetailsModal = ({ selectedPhoto, closeModal, toggleFavorite, favorites }) => {
+  const { urls, user, location, similar_photos } = selectedPhoto;
+  console.log('similar_phot', similar_photos);
 
-  const handleSimilar = (photo) => {
-    setSelectedSimilarPhoto(photo);
-  };
 
   return (
     <div className="photo-details-modal">
@@ -22,7 +16,7 @@ const PhotoDetailsModal = ({ selectedPhoto, closeModal, photos }) => {
       </button>
 
       <div className='photo-details-modal__images'>
-
+        <PhotoFavButton toggleFavorite={toggleFavorite} photoId={selectedPhoto.id} favorites={favorites} />
           {selectedPhoto.urls && selectedPhoto.urls.full && (
             <img className="photo-details-modal__image"
               src={selectedPhoto.urls.full}
@@ -53,8 +47,10 @@ const PhotoDetailsModal = ({ selectedPhoto, closeModal, photos }) => {
         </div>
         <div className='photo-details-modal__top-bar'>
           <PhotoList
-            photos={photos}
-            similar_photo={handleSimilar}
+            photos={similar_photos}
+            toggleFavorite={toggleFavorite}
+            photoId={selectedPhoto.id}
+            favorites={favorites}
           />
         </div>
       </div>

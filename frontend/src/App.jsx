@@ -6,9 +6,9 @@ import topics from './mocks/topics';
 import './App.scss';
 
 const App = () => {
-  console.log("photos", photos);
   const [selectedPhoto, setSelectedPhoto] = useState([]);
   const [displayModal, setDisplayModal] = useState(false);
+  const [favorites, setFavorites] = useState([]);
 
   const openModal = (photo) => {
     console.log('test', photo);
@@ -21,15 +21,34 @@ const App = () => {
     setDisplayModal(false);
   };
 
+  const isFavorite = (photoId) => favorites.includes(photoId);
+
+  const toggleFavorite = (photoId) => {
+    console.log('toggleFav', photoId);
+    if (isFavorite(photoId)) {
+      setFavorites(favorites.filter((id) => id !== photoId));
+    } else {
+      setFavorites([...favorites, photoId]);
+    }
+  }
+
   return (
     <div className="App">
-      <HomeRoute photos={photos} topics={topics} openModal={openModal} />
+      <HomeRoute
+      photos={photos}
+      topics={topics}
+      openModal={openModal}
+      toggleFavorite={toggleFavorite}
+      favoriteCount={favorites.length}
+      favorites={favorites} />
+
       {displayModal && (
         <PhotoDetailsModal
           selectedPhoto={selectedPhoto}
           closeModal={closeModal}
-          photos={photos}
-          similarPhoto={(photo) => {}}
+          isFavorite={isFavorite}
+          toggleFavorite={toggleFavorite}
+          favorites={favorites}
       />
     )}
     </div>

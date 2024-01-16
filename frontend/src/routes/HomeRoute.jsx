@@ -4,21 +4,12 @@ import PhotoFavButton from '../components/PhotoFavButton';
 import TopNavigationBar from '../components/TopNavigationBar';
 import '../styles/HomeRoute.scss';
 
-const HomeRoute = ({ photos, topics, openModal }) => {
- const [favorites, setFavorites] = useState([]);
-
-  const pickFavorite = (photoId) => {
-    setFavorites((prevFavorites) =>
-    prevFavorites.includes(photoId)
-    ? prevFavorites.filter((id) => id !== photoId)
-    : [...prevFavorites, photoId]
-    );
-  };
+const HomeRoute = ({ photos, topics, openModal, toggleFavorite, favoriteCount, favorites }) => {
 
   return (
     <div className="home-route">
-      <TopNavigationBar topics={topics} favoriteCount={favorites.length}/>
-      <PhotoList photos={photos} switchFav={pickFavorite} openModal={openModal} />
+      <TopNavigationBar topics={topics} favoriteCount={favoriteCount}/>
+      <PhotoList photos={photos} openModal={openModal} toggleFavorite={toggleFavorite} favorites={favorites} />
     </div>
   );
 };

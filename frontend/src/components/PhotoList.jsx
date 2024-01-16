@@ -4,17 +4,18 @@ import PhotoFavButton from './PhotoFavButton';
 
 import "../styles/PhotoList.scss";
 
-const PhotoList = ({ photos, switchFav, openModal, similarPhoto }) => {
+const PhotoList = ({ photos, openModal, toggleFavorite, favorites }) => {
 
   return (
     <div className="photo-list">
-      {photos.map((photo) => (
+      {Object.values(photos).map((photo) => (
         <PhotoListItem
         key={photo.id}
         photo={photo}
-        switchFav={switchFav}
         openModal={openModal}
-        similarPhoto={similarPhoto}/>
+        toggleFavorite={toggleFavorite}
+        favorites={favorites}
+        />
       ))}
     </div>
   );

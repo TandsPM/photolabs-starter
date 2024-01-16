@@ -3,21 +3,23 @@ import PhotoFavButton from './PhotoFavButton';
 import "../styles/PhotoListItem.scss";
 
 
-const PhotoListItem = ({ photo, switchFav, openModal }) => {
+const PhotoListItem = ({ photo, openModal, toggleFavorite, favorites }) => {
   const { location, urls, user } = photo;
 
   const handleClick = () => {
-    openModal(photo);
+    if (openModal) {
+      openModal(photo);
+    };
   }
- 
+
   return (
     <div className="photo-list__item" onClick={handleClick}>
-      <PhotoFavButton switchFav={switchFav} isFavorite={photo.isFavorite} photoId={photo.id} />
+      <PhotoFavButton photoId={photo.id} toggleFavorite={toggleFavorite} favorites={favorites} />
 
       <div className="photo-list__content">
-      {urls && <img src={urls.regular} alt={`Photo by ${user.username}`} className="photo-list__image"/>}
+        {urls && <img src={urls.regular} alt={`Photo by ${user.username}`} className="photo-list__image" />}
 
-      {user && (
+        {user && (
           <div className="photo-list__user-container">
             <div className="photo-list__user-details">
               <img src={user.profile} alt={`${user.username}'s profile`} className="photo-list__user-profile" />
@@ -32,7 +34,7 @@ const PhotoListItem = ({ photo, switchFav, openModal }) => {
         )}
       </div>
     </div>
-  )
+  );
 };
 
 export default PhotoListItem;
