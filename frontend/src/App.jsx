@@ -11,12 +11,14 @@ const App = () => {
     toggleFavorite,
     onClosePhotoDetailsModal,
     handleTopic,
+    setDark,
   } = useApplicationData();
 
-const { selectedPhoto, displayModal, favorites, photoData, topicData } = state;
+const { selectedPhoto, displayModal, favorites, photoData, topicData, dark } = state;
+
 
   return (
-    <div className="App">
+    <div className={`App ${dark}`}>
       <HomeRoute
       photos={photoData}
       topics={topicData}
@@ -25,6 +27,7 @@ const { selectedPhoto, displayModal, favorites, photoData, topicData } = state;
       openModal={openModal}
       favorites={favorites}
       handleTopic={handleTopic}
+      setDark={setDark}
       />
 
       {displayModal && (

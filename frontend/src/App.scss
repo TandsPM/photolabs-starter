@@ -2,6 +2,12 @@
   margin: 24px;
 }
 
+.App.dark {
+  background: #222;
+  border-color: white;
+  color: white;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
