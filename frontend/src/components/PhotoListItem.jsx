@@ -14,10 +14,10 @@ const PhotoListItem = ({ photo, openModal, toggleFavorite, favorites }) => {
   }
 
   return (
-    <div className="photo-list__item" onClick={handleClick}>
+    <div className="photo-list__item">
       <PhotoFavButton photoId={photo.id} toggleFavorite={toggleFavorite} favorites={favorites} />
 
-      <div className="photo-list__content">
+      <div className="photo-list__content" onClick={handleClick}>
         {urls && <img src={urls.regular} alt={`Photo by ${user.username}`} className="photo-list__image" />}
 
         {user && (

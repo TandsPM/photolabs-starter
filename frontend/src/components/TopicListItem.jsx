@@ -4,9 +4,9 @@ import "../styles/TopicListItem.scss";
 
 
 const TopicListItem = ({ topicId, title, handleTopic }) => {
+
   const handleClick = () => {
-    console.log(topicId);
-    // handleTopic(topicId);
+    handleTopic(topicId);
   };
 
   return (

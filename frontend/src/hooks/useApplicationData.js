@@ -97,7 +97,7 @@ const fetchPhotosByTopic = (topicId) => {
   axios
   .get(`http://localhost:8001/api/topics/photos/${topicId}`)
   .then((response) => {
-    dispatch({ type: ACTIONS.SET_PHOTOS_BY_TOPIC, payload: response.data });
+    dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: response.data });
   })
   .catch((error) => {
     console.error(`Error fetching the photos by topic:`, error);
