@@ -3,9 +3,9 @@ import React from "react";
 import "../styles/TopicListItem.scss";
 
 
-const TopicListItem = ({ slug, title, onClick }) => {
-  const handleClick = () => {
-    onClick(slug);
+const TopicListItem = ({ topic, title, handleTopic }) => {
+  const handleClick = (e) => {
+    handleTopic(topic);
   };
 
   return (

@@ -57,7 +57,6 @@ const useApplicationData = () => {
 
   const toggleFavorite = (photoId) => {
     dispatch({ type: ACTIONS.TOGGLE_FAVORITE, payload: photoId });
-
   };
 
   const onClosePhotoDetailsModal = () => {

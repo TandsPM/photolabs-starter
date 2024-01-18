@@ -6,8 +6,9 @@ import "../styles/PhotoListItem.scss";
 const PhotoListItem = ({ photo, openModal, toggleFavorite, favorites }) => {
   const { location, urls, user } = photo;
 
-  const handleClick = () => {
-    if (openModal) {
+  const handleClick = (event) => {
+    const isFav = event.target.classList.contains('photo-list__fav-icon-svg');
+    if (!isFav && openModal) {
       openModal(photo);
     };
   }
